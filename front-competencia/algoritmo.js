@@ -41,7 +41,6 @@ function inicializarLista() {
 }
 
 
-<<<<<<< HEAD
 function ya(b){
     for(i=0; i<b ; i++){
         listaYaPaso[i]=listo[i];
@@ -55,7 +54,7 @@ function calcularPorcentaje(puntoActual, puntoFinalDefinido) {
     return (distanciaRecorrida(puntoActual) / distanciaTotal()) * 100;
 }
 
-<<<<<<< HEAD
+
 function distanciaRecorrida(puntoActual)
 {
     dist =0;
