@@ -1,5 +1,15 @@
 var lista;
 var listaYaPaso;
+var listafalta;
+var listo;
+
+listo = [{location: 'Calle 85 #23-10, Bogota'},
+{location: 'Calle 93 #19-10, Bogota'},
+{location: 'Calle 100 #19-10, Bogota'},
+{location: 'Calle 108 #15-10, Bogota'},
+{location: 'Calle 116 #20-10, Bogota'}];
+
+listafalta = listo;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -34,7 +44,8 @@ function inicializarLista()
 
 function ya(b){
     for(i=0; i<b ; i++){
-        listaYaPaso[i]=lista[i];
+        listaYaPaso[i]=listo[i];
+        listafalta.shift();
     }
 }
 
@@ -48,7 +59,7 @@ function distanciaRecorrida(puntoActual)
 {
     dist =0;
     for(i = 0 ; i < listaYaPaso.routes[0].legs.length; i++){
-        dist = dist + listaYaPaso.routes[0].legs[i].distance.value;
+        dist = dist + lista.routes[0].legs[i].distance.value;
     }
     return dist
 }
@@ -73,15 +84,27 @@ function estaDentroCamino(punto)
         dentro = true;
     }
     return dentro
-} */
-
-function calcularaListas(){
-
 }
+ */
 
 /***
  * Modifica Json (BONO)
  */
-function calcularNuevaRuta(puntoActual, puntoFinal){
+function calcularNuevaRuta(puntoActual){
+  
 
+    let request = {
+        origin: puntoActual,
+        destination: 'Colegio Italiano Leonardo Da Vinci, Bogota',
+        travelMode: 'DRIVING',
+        waypoints: listafalta
+    };
+
+    directionsService.route(request, function(result, status){
+        console.log(result);
+        if(status == 'OK') {
+            directionsRenderer.setDirections(result);
+        }
+    });
+    directionsRenderer.setMap(map);
 }
