@@ -5,10 +5,17 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 4.66421, lng: -74.07861 },
         zoom: 16
-      });
+    });
+
+    inicializarLista();
 }
 
 function inicializarLista() {
+    var directionsService = new google.maps.DirectionsService();
+    var directionsRenderer = new google.maps.DirectionsRenderer({
+        supressMarkers: true
+    })
+
     let request = {
         origin: 'Colegio Italiano Leonardo Da Vinci, Bogota',
         destination: 'Colegio Italiano Leonardo Da Vinci, Bogota',
@@ -42,10 +49,12 @@ function calcularPorcentaje(puntoActual, puntoFinalDefinido) {
     return (distanciaRecorrida(puntoActual) / distanciaTotal()) * 100;
 }
 
+
 function distanciaRecorrida(puntoActual) {
     dist = 0;
     for (i = 0; i < listaYaPaso.routes[0].legs.length; i++) {
-        dist = dist + listaYaPaso.routes[0].legs[i].distance.value;
+        dist = dist + lista.routes[0].legs[i].distance.value;
+
     }
     return dist
 }

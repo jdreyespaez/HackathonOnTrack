@@ -29,7 +29,7 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Elegir parada" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Calcular</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
   </nav>
@@ -38,7 +38,7 @@
       style="border:0" allowfullscreen></iframe> -->
     <div id="map" class="map-container">
       <!-- Aquí vendrá el algoritmo de Camilo y Tobia -->
-      <script src="algoritmo_raw.js"></script>
+      <script src="algoritmo.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ2wSiH5-0oEREOYgw2VRjEkHSHV_yRgA&callback=initMap"
         async defer></script>
     </div>
@@ -50,12 +50,11 @@
       <img src="img/ontrack_School.jpg" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">Porcertanje de Progreso</h5>
-
-
-
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text">Querido padre de familia, tu hij@ está cerca del llegar al colegio.</p>
+        <a href="#" class="btn btn-primary">Calcular</a>
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
       </div>
     </div>
   </div>
