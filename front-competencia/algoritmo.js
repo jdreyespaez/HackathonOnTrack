@@ -18,6 +18,7 @@ function initMap() {
     });
 
     inicializarLista();
+    console.log('La lista se inicializó.');
 }
 
 function inicializarLista() {
@@ -45,6 +46,7 @@ function inicializarLista() {
         }
     });
     directionsRenderer.setMap(map);
+    console.log('Primero cargó los puntos en el mapa y después...')
 }
 
 
@@ -114,3 +116,10 @@ function calcularNuevaRuta(puntoActual) {
     });
     directionsRenderer.setMap(map);
 }
+
+var boton = document.getElementById("calcular");
+
+boton.onclick = function () {
+    alert('hello!');
+    console.log('click');
+};
